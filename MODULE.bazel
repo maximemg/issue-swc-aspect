@@ -10,24 +10,6 @@ module(name = "issue-swc", version = "1.0")
 bazel_dep(name = "aspect_bazel_lib", version = "2.9.3")
 
 #
-# Rules Skylib
-#
-# https://github.com/bazelbuild/bazel-skylib/releases
-bazel_dep(name = "bazel_skylib", version = "1.7.1")
-
-#
-# Rules PKG
-#
-# https://github.com/bazelbuild/rules_pkg/releases
-bazel_dep(name = "rules_pkg", version = "1.0.1")
-
-#
-# Rules Platform
-#
-# https://github.com/bazelbuild/platforms/releases/
-bazel_dep(name = "platforms", version = "0.0.10")
-
-#
 # Rules JS
 #
 # https://github.com/aspect-build/rules_js/releases/

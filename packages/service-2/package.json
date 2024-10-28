@@ -1,6 +1,8 @@
 {
     "name": "service-2",
     "private": true,
-    "dependencies": {},
+    "dependencies": {
+        "lib-3": "workspace:*"
+    },
     "devDependencies": {}
 }

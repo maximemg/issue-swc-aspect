@@ -1,5 +1,5 @@
 load("//tools/ts:defs.bzl", "library")
 
 library(
-    name = "lib-2",
+    name = "lib-3",
 )

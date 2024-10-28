@@ -6,8 +6,8 @@
         "moduleResolution": "node",
         "baseUrl": "./src",
         "paths": {
-            "app/*": [
-                "./app/*"
+            "lib/*": [
+                "./lib/*"
             ]
         }
     }
