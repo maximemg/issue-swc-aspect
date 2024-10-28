@@ -2,6 +2,7 @@
     "name": "service-2",
     "private": true,
     "dependencies": {
+        "lib-2": "workspace:*",
         "lib-3": "workspace:*"
     },
     "devDependencies": {}

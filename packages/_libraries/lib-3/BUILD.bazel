@@ -1,5 +1,7 @@
 load("//tools/ts:defs.bzl", "library")
 
+package(default_visibility = ["//visibility:public"])
+
 library(
     name = "lib-3",
 )

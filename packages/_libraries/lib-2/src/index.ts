@@ -1,1 +1,1 @@
-export const B = 'B'
+export const TEST_NOT_IMPORTED = 'TEST_NOT_IMPORTED';

@@ -14,9 +14,19 @@ importers:
         specifier: 5.3.2
         version: 5.3.2
 
+  packages/_libraries/lib-1: {}
+
+  packages/_libraries/lib-2: {}
+
+  packages/_libraries/lib-3: {}
+
   packages/service-1: {}
 
-  packages/service-2: {}
+  packages/service-2:
+    dependencies:
+      lib-3:
+        specifier: workspace:*
+        version: link:../_libraries/lib-3
 
 packages:
 

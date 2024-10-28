@@ -3,7 +3,7 @@ load("@aspect_rules_js//npm:defs.bzl", "npm_package")
 load("@aspect_rules_ts//ts:defs.bzl", "ts_config")
 load("//tools/ts:ts.bzl", "ts")
 
-def library(name):
+def _base_config(name):
     ts_config(
         name = "tsconfig_build",
         src = "tsconfig.build.json",
@@ -17,6 +17,7 @@ def library(name):
         name = "swcrc_build",
         srcs = [
             "//:tsconfig_build",
+            ":tsconfig_build",
         ],
         args = [
             "./tsconfig.build.json",
@@ -25,6 +26,9 @@ def library(name):
         stdout = ".swcrc.build",
         tool = "//tools/ts:gen-swcrc",
     )
+
+def library(name):
+    _base_config(name)
 
     ts(
         name = "ts",
@@ -49,28 +53,8 @@ def library(name):
         ],
     )
 
-def service(name):
-    ts_config(
-        name = "tsconfig_build",
-        src = "tsconfig.build.json",
-        deps = [
-            "//:tsconfig",
-            "//:tsconfig_build",
-        ],
-    )
-
-    js_run_binary(
-        name = "swcrc_build",
-        srcs = [
-            "//:tsconfig_build",
-        ],
-        args = [
-            "./tsconfig.build.json",
-        ],
-        chdir = native.package_name(),
-        stdout = ".swcrc.build",
-        tool = "//tools/ts:gen-swcrc",
-    )
+def service(name, deps = []):
+    _base_config(name)
 
     ts(
         name = "ts",
@@ -79,7 +63,7 @@ def service(name):
         tsconfig = "//:tsconfig_build",
         deps = [
             ":tsconfig_build",
-        ],
+        ] + deps,
     )
 
     js_binary(

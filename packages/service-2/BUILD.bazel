@@ -2,4 +2,8 @@ load("//tools/ts:defs.bzl", "service")
 
 service(
     name = "service-2",
+    deps = [
+        "//packages/_libraries/lib-2:pkg",
+        "//packages/_libraries/lib-3:pkg",
+    ],
 )
