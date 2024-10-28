@@ -1,6 +1,37 @@
-load('//tools/ts:ts.bzl','ts')
+load("@aspect_rules_js//js:defs.bzl", "js_run_binary")
+load("@aspect_rules_ts//ts:defs.bzl", "ts_config")
+load("//tools/ts:ts.bzl", "ts")
+
+package(default_visibility = ["//visibility:public"])
+
+ts_config(
+    name = "tsconfig_build",
+    src = "tsconfig.build.json",
+    deps = [
+        "//:tsconfig",
+        "//:tsconfig_build",
+    ],
+)
+
+js_run_binary(
+    name = "swcrc_build",
+    srcs = [
+        "//:tsconfig_build",
+    ],
+    args = [
+        "./tsconfig.build.json",
+    ],
+    chdir = package_name(),
+    stdout = ".swcrc.build",
+    tool = "//tools/ts:gen-swcrc",
+)
 
 ts(
-    name="lib-1",
-    srcs=glob(["src/**/*.ts"])
+    name = "ts",
+    srcs = glob(["src/**/*.ts"]),
+    swcrc = ":swcrc_build",
+    tsconfig = "//:tsconfig_build",
+    deps = [
+        ":tsconfig_build",
+    ],
 )

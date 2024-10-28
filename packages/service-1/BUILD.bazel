@@ -1,10 +1,21 @@
 load("@aspect_rules_js//js:defs.bzl", "js_run_binary")
+load("@aspect_rules_ts//ts:defs.bzl", "ts_config")
 load("//tools/ts:ts.bzl", "ts")
+
+package(default_visibility = ["//visibility:public"])
+
+ts_config(
+    name = "tsconfig_build",
+    src = "tsconfig.build.json",
+    deps = [
+        "//:tsconfig",
+        "//:tsconfig_build",
+    ],
+)
 
 js_run_binary(
     name = "swcrc_build",
     srcs = [
-        ":build_tsconfig",
         "//:tsconfig_build",
     ],
     args = [
@@ -16,7 +27,11 @@ js_run_binary(
 )
 
 ts(
-    name = "service-1",
-    swcrc=":swcrc_build",
+    name = "ts",
     srcs = glob(["src/**/*.ts"]),
+    swcrc = ":swcrc_build",
+    tsconfig = "//:tsconfig_build",
+    deps = [
+        ":tsconfig_build",
+    ],
 )

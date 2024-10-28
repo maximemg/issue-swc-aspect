@@ -5,12 +5,6 @@ load("//tools/ts:ts.bzl", "ts")
 package(default_visibility = ["//visibility:public"])
 
 ts_config(
-    name = "tsconfig",
-    src = "tsconfig.json",
-    deps = ["//:tsconfig"],
-)
-
-ts_config(
     name = "tsconfig_build",
     src = "tsconfig.build.json",
     deps = [
@@ -22,7 +16,6 @@ ts_config(
 js_run_binary(
     name = "swcrc_build",
     srcs = [
-        "//:tsconfig",
         "//:tsconfig_build",
     ],
     args = [

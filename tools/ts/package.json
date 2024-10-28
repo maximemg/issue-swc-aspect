@@ -3,6 +3,6 @@
   "description": "Tool for generating .swcrc from tsconfig.json",
   "private": true,
   "peerDependencies": {
-    "@types/node": ">=16.0.0"
+    "@types/node": ">=18.0.0"
   }
 }
