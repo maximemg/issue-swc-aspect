@@ -1,0 +1,10 @@
+{
+    "name": "test-swc",
+    "private": true,
+    "dependencies": {},
+    "devDependencies": {
+        "typescript": "5.3.2",
+        "tsconfig-to-swcconfig": "^2.8.1",
+        "@types/node": "^18.0.20"
+    }
+}

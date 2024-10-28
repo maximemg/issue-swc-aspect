@@ -1,0 +1,6 @@
+{
+    "name": "service-1",
+    "private": true,
+    "dependencies": {},
+    "devDependencies": {}
+}

@@ -1,0 +1,1 @@
+import {APP} from 'app/app'

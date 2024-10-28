@@ -1,0 +1,22 @@
+load("@aspect_rules_js//js:defs.bzl", "js_run_binary")
+load("//tools/ts:ts.bzl", "ts")
+
+js_run_binary(
+    name = "swcrc_build",
+    srcs = [
+        ":build_tsconfig",
+        "//:tsconfig_build",
+    ],
+    args = [
+        "./tsconfig.build.json",
+    ],
+    chdir = package_name(),
+    stdout = ".swcrc.build",
+    tool = "//tools/ts:gen-swcrc",
+)
+
+ts(
+    name = "service-1",
+    swcrc=":swcrc_build",
+    srcs = glob(["src/**/*.ts"]),
+)

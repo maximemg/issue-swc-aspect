@@ -1,0 +1,6 @@
+node_modules
+
+packages/_libraries/lib-1/node_modules
+packages/_libraries/lib-2/node_modules
+packages/service-1/node_modules
+packages/service-2/node_modules

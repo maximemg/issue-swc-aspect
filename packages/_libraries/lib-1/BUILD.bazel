@@ -1,0 +1,6 @@
+load('//tools/ts:ts.bzl','ts')
+
+ts(
+    name="lib-1",
+    srcs=glob(["src/**/*.ts"])
+)
