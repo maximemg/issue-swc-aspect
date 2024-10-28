@@ -34,9 +34,10 @@ def library(name):
         name = "ts",
         srcs = native.glob(["src/**/*.ts"]),
         swcrc = ":swcrc_build",
-        tsconfig = "//:tsconfig_build",
+        tsconfig = ":tsconfig_build",
         deps = [
             ":tsconfig_build",
+            "//:tsconfig_build",
         ],
     )
 
@@ -60,9 +61,10 @@ def service(name, deps = []):
         name = "ts",
         srcs = native.glob(["src/**/*.ts"]),
         swcrc = ":swcrc_build",
-        tsconfig = "//:tsconfig_build",
+        tsconfig = ":tsconfig_build",
         deps = [
             ":tsconfig_build",
+            "//:tsconfig_build",
         ] + deps,
     )
 
