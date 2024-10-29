@@ -6,11 +6,11 @@ package(default_visibility = ["//visibility:public"])
 npm_link_all_packages(name = "node_modules")
 
 ts_config(
-    name = "tsconfig",
+    name = "shared_tsconfig",
     src = "tsconfig.json",
 )
 
 ts_config(
-    name = "tsconfig_build",
+    name = "shared_tsconfig_build",
     src = "tsconfig.build.json",
 )

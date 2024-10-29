@@ -7,16 +7,15 @@ def _base_config(name):
         name = "tsconfig_build",
         src = "tsconfig.build.json",
         deps = [
-            "//:tsconfig",
-            "//:tsconfig_build",
+            "//:shared_tsconfig_build",
         ],
     )
 
     js_run_binary(
         name = "swcrc_build",
         srcs = [
-            "//:tsconfig_build",
             ":tsconfig_build",
+            "//:shared_tsconfig_build",
         ],
         args = [
             "./tsconfig.build.json",
@@ -35,8 +34,7 @@ def library(name, deps = []):
         swcrc = ":swcrc_build",
         deps = [
             ":tsconfig_build",
-            "//:tsconfig_build",
-        ],
+        ] + deps,
     )
 
     # npm_package(
@@ -66,7 +64,6 @@ def service(name, deps = []):
         swcrc = ":swcrc_build",
         deps = [
             ":tsconfig_build",
-            "//:tsconfig_build",
         ] + deps,
     )
 
