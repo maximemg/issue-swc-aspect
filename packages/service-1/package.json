@@ -2,5 +2,12 @@
     "name": "service-1",
     "private": true,
     "dependencies": {},
-    "devDependencies": {}
+    "devDependencies": {},
+    "scripts": {
+        "dev": "concurrently \"npm run watch-compile\" \"npm run watch-dev\"",
+        "watch-compile": "swc src -w --out-dir dist",
+        "watch-dev": "nodemon --watch \"dist/**/*\" -e js ./dist/src/main.js",
+        "build": "swc src -d dist",
+        "clean": "rm -rf dist"
+    }
 }

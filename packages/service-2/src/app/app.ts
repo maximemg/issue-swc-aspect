@@ -1,2 +1,2 @@
-export const APP = 'app'
+export const APP = 'app works !';
 

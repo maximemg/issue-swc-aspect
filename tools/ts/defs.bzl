@@ -3,22 +3,6 @@ load("@aspect_rules_js//npm:defs.bzl", "npm_package")
 load("@aspect_rules_ts//ts:defs.bzl", "ts_config")
 load("//tools/ts:ts.bzl", "ts")
 
-# swc_plugin(
-#     name = "npm_plugin",
-#     srcs = [
-#         # reference the location where the "@swc/plugin-transform-imports" npm package was linked in our root Bazel package.
-#         ":node_modules/@swc/plugin-transform-imports",
-#         ":node_modules/@swc/plugin-transform-imports/dir",
-#     ],
-#     # optional plugin config, the JSON object for the plugin passed into jsc.experimental.plugins
-#     # https://swc.rs/docs/configuration/compilation#jscexperimentalplugins
-#     config = {
-#         "lib": {
-#             "transform": "lodash/{{member}}",
-#         },
-#     },
-# )
-
 def _base_config(name):
     ts_config(
         name = "tsconfig_build",
@@ -50,7 +34,6 @@ def library(name):
         name = "ts",
         srcs = native.glob(["src/**/*.ts"]),
         swcrc = ":swcrc_build",
-        tsconfig = ":tsconfig_build",
         deps = [
             ":tsconfig_build",
             "//:tsconfig_build",
@@ -77,7 +60,6 @@ def service(name, deps = []):
         name = "ts",
         srcs = native.glob(["src/**/*.ts"]),
         swcrc = ":swcrc_build",
-        tsconfig = ":tsconfig_build",
         deps = [
             ":tsconfig_build",
             "//:tsconfig_build",

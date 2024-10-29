@@ -15,12 +15,13 @@ const config = {
         ...base_config.jsc,
         ...{
             parser: {
+                ...base_config.jsc.parser,
                 syntax: "typescript",
                 tsx: false,
                 decorators: true,
-                dynamicImport: false
+                dynamicImport: true
             },
-            target: "es2022",
+            target: "es2021",
             keepClassNames: true
         }
     },

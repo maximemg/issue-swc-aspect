@@ -2,9 +2,10 @@
     "name": "test-swc",
     "private": true,
     "dependencies": {
-        "@swc/plugin-transform-imports": "^3.0.4"
-    },
-    "devDependencies": {
+        "@swc/cli": "0.4.1-nightly.20240914",
+        "@swc/core": "^1.7.40",
+        "concurrently": "^8.2.0",
+        "nodemon": "^3.1.7",
         "@types/node": "^18.0.20",
         "tsconfig-to-swcconfig": "^2.8.1",
         "typescript": "5.3.2"

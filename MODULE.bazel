@@ -60,4 +60,4 @@ use_repo(rules_ts_ext, "npm_typescript")
 # Rules SWC
 #
 # https://github.com/aspect-build/rules_swc/releases
-bazel_dep(name = "aspect_rules_swc", version = "2.0.1")
+bazel_dep(name = "aspect_rules_swc", version = "2.0.0")

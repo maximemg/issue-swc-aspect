@@ -1,22 +1,19 @@
 """
 Typescript related macros
 """
-
-load("@aspect_rules_ts//ts:defs.bzl", _ts_project = "ts_project")
-load("@bazel_skylib//lib:partial.bzl", "partial")
 load("@aspect_rules_swc//swc:defs.bzl", "swc")
 def ts(
         name,
+        srcs,
         swcrc,
-        declaration_maps=True,
-        source_maps = True,        
+        deps = [],
+        source_maps = True,
         **kwargs):
-        
-    _ts_project(
+    swc(
         name = name,
-        transpiler = partial.make(swc, swcrc = swcrc, source_maps = True),
-        declaration = True,
-        declaration_map = declaration_maps,
-        source_map = source_maps,
+        data = deps,
+        srcs = srcs,
+        swcrc = swcrc,
+        source_maps = source_maps,
         **kwargs
     )
