@@ -1,7 +1,9 @@
 """
 Typescript related macros
 """
+
 load("@aspect_rules_swc//swc:defs.bzl", "swc")
+
 def ts(
         name,
         srcs,

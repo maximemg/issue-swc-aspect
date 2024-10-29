@@ -1,16 +1,16 @@
 {
-  "extends": "../../../tsconfig.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "baseUrl": "./src",
     "types": [
       "node"
     ],
     "paths": {
-      "lib/*": [
-        "./lib/*"
+      "app/*": [
+        "./app/*"
       ],
       "@library/*": [
-        "./../*/src/index.ts"
+        "../../_libraries/*/src/index.ts"
       ]
     },
   }

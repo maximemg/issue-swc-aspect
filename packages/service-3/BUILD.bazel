@@ -8,6 +8,6 @@ npm_link_all_packages(name = "node_modules")
 service(
     name = "service-2",
     deps = [
-        "//packages/_libraries/lib-2:pkg",
+        "//packages/_libraries/lib-3:pkg",
     ],
 )

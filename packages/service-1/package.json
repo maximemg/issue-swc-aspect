@@ -1,13 +1,8 @@
 {
     "name": "service-1",
     "private": true,
-    "dependencies": {},
-    "devDependencies": {},
-    "scripts": {
-        "dev": "concurrently \"npm run watch-compile\" \"npm run watch-dev\"",
-        "watch-compile": "swc src -w --out-dir dist",
-        "watch-dev": "nodemon --watch \"dist/**/*\" -e js ./dist/src/main.js",
-        "build": "swc src -d dist",
-        "clean": "rm -rf dist"
+    "description": "Service importing a library that doesnt not import another library",
+    "dependencies": {
+        "lib-1": "workspace:*"
     }
 }

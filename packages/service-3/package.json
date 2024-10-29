@@ -1,0 +1,8 @@
+{
+    "name": "service-3",
+    "private": true,
+    "description": "Service importing a library that imports has an internal path alias",
+    "dependencies": {
+        "lib-3": "workspace:*"
+    }
+}

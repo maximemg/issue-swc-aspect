@@ -9,8 +9,8 @@
       "app/*": [
         "./app/*"
       ],
-      "@lib/*": [
-        "../_libraries/*/src/index"
+      "@library/*": [
+        "./../../_libraries/*/src/index.ts"
       ]
     },
   }

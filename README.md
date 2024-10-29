@@ -1,29 +1,19 @@
-# SWC Aspect Bazel Issue
+# Libraries
 
-This repo is a minimal reproduction of a SWC aspect bazel issue.
+## Lib 1
 
-# Build
+Lib 1 imports with internal path alias.
 
-These work fine
+## Lib 2
 
-```
-bazel build //packages/service-1:ts
-```
+Lib 2 imports lib 3.
 
-```
-bazel build //packages/service-2:ts
-```
+# Services
 
-# Run
+## Service 1
 
-These do not work
+Service 1 imports lib 1. -> OK
 
-in app path not resolved
-```
-bazel run //packages/service-1:run
-```
+## Service 2
 
-lib path not resolved
-```
-bazel run //packages/service-2:run
-```
+Lib 2 imports lib 3.

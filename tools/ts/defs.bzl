@@ -1,5 +1,4 @@
-load("@aspect_rules_js//js:defs.bzl", "js_binary", "js_run_binary")
-load("@aspect_rules_js//npm:defs.bzl", "npm_package")
+load("@aspect_rules_js//js:defs.bzl", "js_binary", "js_library", "js_run_binary")
 load("@aspect_rules_ts//ts:defs.bzl", "ts_config")
 load("//tools/ts:ts.bzl", "ts")
 
@@ -27,7 +26,7 @@ def _base_config(name):
         tool = "//tools/ts:gen-swcrc",
     )
 
-def library(name):
+def library(name, deps = []):
     _base_config(name)
 
     ts(
@@ -40,17 +39,22 @@ def library(name):
         ],
     )
 
-    npm_package(
+    # npm_package(
+    #     name = "pkg",
+    #     srcs = [
+    #         "package.json",
+    #         ":ts",
+    #     ],
+    #     include_runfiles = False,
+    #     package = native.package_name().split("/").pop(),
+    #     root_paths = [
+    #         native.package_name() + "/src",
+    #     ],
+    # )
+
+    js_library(
         name = "pkg",
-        srcs = [
-            "package.json",
-            ":ts",
-        ],
-        include_runfiles = False,
-        package = native.package_name().split("/").pop(),
-        root_paths = [
-            native.package_name() + "/src",
-        ],
+        srcs = [":ts"],
     )
 
 def service(name, deps = []):
