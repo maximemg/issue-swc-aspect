@@ -32,23 +32,11 @@ importers:
 
   packages/_libraries/lib-3: {}
 
-  packages/service-1:
-    dependencies:
-      lib-1:
-        specifier: workspace:*
-        version: link:../_libraries/lib-1
+  packages/service-1: {}
 
-  packages/service-2:
-    dependencies:
-      lib-2:
-        specifier: workspace:*
-        version: link:../_libraries/lib-2
+  packages/service-2: {}
 
-  packages/service-3:
-    dependencies:
-      lib-3:
-        specifier: workspace:*
-        version: link:../_libraries/lib-3
+  packages/service-3: {}
 
 packages:
 
