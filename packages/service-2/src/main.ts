@@ -1,4 +1,7 @@
-import { APP } from './app/app'
+import { TEST_IMPORTED } from '@library/lib-2'
 
-console.log(APP);
-console.log('Service 2 works');
+// External import with internal path alias
+console.log('\n',TEST_IMPORTED);
+
+// Success
+console.log('\n','Service 2 works');
