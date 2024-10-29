@@ -1,8 +1,4 @@
 {
     "name": "service-2",
-    "private": true,
-    "description": "Service importing a library that imports another library",
-    "dependencies": {
-        "lib-2": "workspace:*"
-    }
+    "private": true
 }

@@ -37,19 +37,6 @@ def library(name, deps = []):
         ] + deps,
     )
 
-    # npm_package(
-    #     name = "pkg",
-    #     srcs = [
-    #         "package.json",
-    #         ":ts",
-    #     ],
-    #     include_runfiles = False,
-    #     package = native.package_name().split("/").pop(),
-    #     root_paths = [
-    #         native.package_name() + "/src",
-    #     ],
-    # )
-
     js_library(
         name = "pkg",
         srcs = [":ts"],
