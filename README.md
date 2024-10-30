@@ -4,9 +4,12 @@
 bazel run //packages/service:run
 ```
 
-Works in 2.0.0 
+## 2.0.0
 
-Throws with 2.0.1
+Works
+
+## 2.0.1
+Throws 
 
 ```
 Error: Cannot find module '../../../../../.cache/bazel/_bazel_max/007863a2efd1f6b69163ed0ea9d79e23/execroot/_main/bazel-out/k8-fastbuild/bin/packages/service/src/app/app'
@@ -28,3 +31,5 @@ Require stack:
   ]
 }
 ```
+
+
