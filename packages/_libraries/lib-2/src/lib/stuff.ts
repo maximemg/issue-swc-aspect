@@ -1,1 +1,0 @@
-export const DATA = 'LIB 2 nested '

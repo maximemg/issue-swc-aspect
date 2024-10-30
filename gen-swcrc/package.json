@@ -1,0 +1,8 @@
+{
+  "name": "gen-swcrc",
+  "description": "Tool for generating .swcrc from tsconfig.json",
+  "private": true,
+  "peerDependencies": {
+    "@types/node": ">=18.0.0"
+  }
+}

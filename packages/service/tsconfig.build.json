@@ -4,13 +4,11 @@
         "declaration": true,
         "declarationMap": true,
         "moduleResolution": "node",
+        "rootDir": ".",
         "baseUrl": "./src",
         "paths": {
             "app/*": [
                 "./app/*"
-            ],
-            "@library/*": [
-                "./../../_libraries/*/src/index.ts"
             ]
         }
     }

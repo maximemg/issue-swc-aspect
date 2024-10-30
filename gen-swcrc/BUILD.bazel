@@ -1,0 +1,11 @@
+load("@aspect_rules_js//js:defs.bzl", "js_binary")
+
+package(default_visibility = ["//visibility:public"])
+
+js_binary(
+    name = "gen-swcrc",
+    data = [
+        "//:node_modules/tsconfig-to-swcconfig",
+    ],
+    entry_point = "generate.js",
+)
