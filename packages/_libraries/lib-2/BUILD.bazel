@@ -7,7 +7,7 @@ package(default_visibility = ["//visibility:public"])
 
 npm_link_all_packages(name = "node_modules")
 
-DEPS = []
+DEPS = ["//packages/_libraries/lib-1:pkg"]
 
 ts_config(
     name = "tsconfig_build",
