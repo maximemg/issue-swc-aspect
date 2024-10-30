@@ -1,13 +1,47 @@
+load("@aspect_rules_js//js:defs.bzl", "js_binary", "js_run_binary")
+load("@aspect_rules_swc//swc:defs.bzl", "swc")
+load("@aspect_rules_ts//ts:defs.bzl", "ts_config")
 load("@npm//:defs.bzl", "npm_link_all_packages")
-load("//tools/ts:defs.bzl", "service")
 
 package(default_visibility = ["//visibility:public"])
 
 npm_link_all_packages(name = "node_modules")
 
-service(
-    name = "service-1",
+DEPS = ["//packages/_libraries/lib-1:pkg"]
+
+ts_config(
+    name = "tsconfig_build",
+    src = "tsconfig.build.json",
     deps = [
-        "//packages/_libraries/lib-1:pkg",
+        "//:shared_tsconfig_build",
     ],
+)
+
+js_run_binary(
+    name = "swcrc_build",
+    srcs = [
+        ":tsconfig_build",
+        "//:shared_tsconfig_build",
+    ],
+    args = [
+        "./tsconfig.build.json",
+    ],
+    chdir = package_name(),
+    stdout = ".swcrc.build",
+    tool = "//gen-swcrc",
+)
+
+swc(
+    name = "ts",
+    srcs = glob(["src/**/*.ts"]),
+    data = DEPS,
+    source_maps = True,
+    swcrc = ":swcrc_build",
+)
+
+js_binary(
+    name = "run",
+    chdir = package_name(),
+    data = [":ts"],
+    entry_point = "src/main.js",
 )
