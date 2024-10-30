@@ -30,13 +30,7 @@ importers:
 
   packages/_libraries/lib-2: {}
 
-  packages/_libraries/lib-3: {}
-
-  packages/service-1: {}
-
-  packages/service-2: {}
-
-  packages/service-3: {}
+  packages/service: {}
 
 packages:
 
